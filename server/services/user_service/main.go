@@ -1,9 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"user_service/configs"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
-	fmt.Print("Test")
+	app := fiber.New()
+
+	configs.ConnectDB()
+
+	app.Listen(":6000")
 }

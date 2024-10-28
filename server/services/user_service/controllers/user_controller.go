@@ -85,8 +85,8 @@ func LoginUser(c *fiber.Ctx) error {
 
 	// Generate JWT token
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"user_id": newUser.Id,
-		"exp":     time.Now().Add(time.Hour * 72).Unix(), // Token expires in 72 hours
+		"user_name": newUser.Username,                      // can use newUser.Id
+		"exp":       time.Now().Add(time.Hour * 72).Unix(), // Token expires in 72 hours
 	})
 
 	// Sign the token with the secret

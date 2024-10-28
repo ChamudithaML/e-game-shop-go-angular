@@ -10,6 +10,8 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt/v4"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
@@ -54,4 +56,47 @@ func CreateUser(c *fiber.Ctx) error {
 	}
 
 	return c.Status(http.StatusCreated).JSON(responses.UserResponse{Status: http.StatusCreated, Message: "User Added", Data: &fiber.Map{"data": result}})
+}
+
+// Secret key for JWT signing
+var secretKey = []byte("chama123")
+
+func LoginUser(c *fiber.Ctx) error {
+	var user models.User
+
+	if err := c.BodyParser(&user); err != nil {
+		return c.Status(http.StatusBadRequest).JSON(responses.UserResponse{Message: "Invalid request"})
+	}
+
+	// Find the user in the database
+	var newUser models.User
+	err := userCollection.FindOne(c.Context(), bson.M{"username": user.Username}).Decode(&newUser)
+	if err != nil {
+		if err == mongo.ErrNoDocuments {
+			return c.Status(http.StatusUnauthorized).JSON(responses.UserResponse{Message: "Invalid credentials"})
+		}
+		return c.Status(http.StatusInternalServerError).JSON(responses.UserResponse{Message: "Error fetching user"})
+	}
+
+	// Compare the hashed password
+	if err := bcrypt.CompareHashAndPassword([]byte(newUser.Password), []byte(user.Password)); err != nil {
+		return c.Status(http.StatusUnauthorized).JSON(responses.UserResponse{Message: "Invalid credentials"})
+	}
+
+	// Generate JWT token
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"user_id": newUser.Id,
+		"exp":     time.Now().Add(time.Hour * 72).Unix(), // Token expires in 72 hours
+	})
+
+	// Sign the token with the secret
+	tokenString, err := token.SignedString(secretKey)
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(responses.UserResponse{Message: "Could not generate token"})
+	}
+
+	// Return the token
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"token": tokenString,
+	})
 }

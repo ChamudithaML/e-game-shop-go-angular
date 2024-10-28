@@ -1,8 +1,8 @@
 package main
 
 import (
-	// "user_service/configs"
-	// "user_service/routes"
+	"game_service/configs"
+	"game_service/routes"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -10,8 +10,8 @@ import (
 func main() {
 	app := fiber.New()
 
-	// configs.ConnectDB()
-	// routes.UserRoute(app)
+	configs.ConnectDB()
+	routes.GameRoute(app)
 
 	app.Listen(":6000")
 }

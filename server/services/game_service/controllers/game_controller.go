@@ -54,12 +54,16 @@ func AddGame(c *fiber.Ctx) error {
 
 func GetGame(c *fiber.Ctx) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	gameId := c.Params("gameId")
-	var game models.Game
 	defer cancel()
 
+	gameId := c.Params("gameId")
+	var game models.Game
+
+	// convert a string (in hexadecimal format) into a MongoDB ObjectID
 	objId, _ := primitive.ObjectIDFromHex(gameId)
 
+	// bson.M{} --> BSON document as a map
+	// finding using _id from db and puting it to game by .Decode(&game)
 	err := gameCollection.FindOne(ctx, bson.M{"_id": objId}).Decode(&game)
 
 	if err != nil {

@@ -9,6 +9,7 @@ import (
 
 // RateLimiter applies a rate limit based on the UserName passed in the request header.
 func RateLimiter() fiber.Handler {
+
 	return func(c *fiber.Ctx) error {
 
 		// Extract UserName from the request header
@@ -16,6 +17,7 @@ func RateLimiter() fiber.Handler {
 
 		// Check if UserName is provided
 		if userName == "" {
+			// panic("Not found")
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "Missing username in headers",
 			})

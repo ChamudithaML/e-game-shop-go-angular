@@ -1,0 +1,25 @@
+.add-game-button {
+    position: fixed;  /* Fixed position */
+    bottom: 20px;     /* 20px from the bottom */
+    right: 20px;      /* 20px from the right */
+    background-color: #007ad9; /* Button color */
+    color: white;     /* Text color */
+    border: none;     /* No border */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;   /* Font size */
+    cursor: pointer;   /* Pointer cursor on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .add-game-button:hover {
+    background-color: #005fa3; /* Darker shade on hover */
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between buttons */
+  }
+  

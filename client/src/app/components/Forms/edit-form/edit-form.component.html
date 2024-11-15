@@ -1,0 +1,32 @@
+<!-- add-form.component.html -->
+<p-dialog header="Edit Game" [(visible)]="displayDialog" [modal]="true" (onHide)="closeForm.emit()">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="title">Title</label>
+        <input id="title" [(ngModel)]="game.title" pInputText required />
+      </div>
+      <div class="p-field">
+        <label for="genre">Genre</label>
+        <input id="genre" [(ngModel)]="game.genre" pInputText required />
+      </div>
+      <div class="p-field">
+        <label for="developer">Developer</label>
+        <input id="developer" [(ngModel)]="game.developer" pInputText required />
+      </div>
+      <div class="p-field">
+        <label for="platform">Platform</label>
+        <input id="platform" [(ngModel)]="game.platform" pInputText required />
+      </div>
+      <div class="p-field">
+        <label for="price">Price</label>
+        <input id="price" type="number" [(ngModel)]="game.price" pInputText required />
+      </div>
+      <div class="p-field">
+        <label for="stock">Stock</label>
+        <input id="stock" type="number" [(ngModel)]="game.stock" pInputText required />
+      </div>
+      <p-button label="Submit" (click)="editGame()" icon="pi pi-check"></p-button>
+      <p-button label="Cancel" (click)="cancel()" icon="pi pi-times" class="p-button-secondary"></p-button>
+    </div>
+  </p-dialog>
+  

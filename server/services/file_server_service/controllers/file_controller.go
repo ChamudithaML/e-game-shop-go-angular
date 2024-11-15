@@ -8,6 +8,17 @@ import (
 	"log"
 )
 
+// Serve the file
+func ServeFile(c *fiber.Ctx) error {
+	fileName := c.Params("filename")
+	filePath := "./public/docs/" + fileName
+
+	if err := c.SendFile(filePath); err != nil {
+		return c.Status(fiber.StatusNotFound).SendString("File not found")
+	}
+	return nil
+}
+
 func CreateDocument(c *fiber.Ctx) error {
 	var letter models.LetterDocument
 

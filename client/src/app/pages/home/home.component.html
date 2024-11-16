@@ -1,0 +1,9 @@
+<div class="game-home-header">
+    <p>Welcome to Game Site</p>
+</div>
+
+<div class="flex flex-wrap md:flex-row justify-center items-center">
+    <div *ngFor="let card of cardsData" class="m-2">
+        <app-card [singleCard]="card"></app-card>
+    </div>
+</div>

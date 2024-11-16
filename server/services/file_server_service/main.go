@@ -16,5 +16,5 @@ func main() {
 	routes.RegisterRoutes(app)
 
 	// Start the server
-	log.Fatal(app.Listen(":8080"))
+	log.Fatal(app.Listen(":8084"))
 }

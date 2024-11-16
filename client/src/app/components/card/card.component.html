@@ -1,0 +1,8 @@
+<p-card [header]="singleCard.title" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+        <img [alt]="singleCard.title" [src]="singleCard.img_url" style="width: 100%;" />
+    </ng-template>
+    <p>
+        {{ singleCard.description }}
+    </p>
+</p-card>

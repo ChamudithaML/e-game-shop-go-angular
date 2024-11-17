@@ -74,6 +74,9 @@ func ProxyRequest(c *fiber.Ctx) error {
 
 	prettyBody, _ := formatRespBody(resp, c)
 
+	// can send the non formatted body and it will work well. just not formatted in postman
+	// body, _ := io.ReadAll(resp.Body)
+
 	// Defer closing the response body only after verifying `resp` is not nil
 	defer resp.Body.Close()
 
@@ -91,6 +94,8 @@ func gameHandler(c *fiber.Ctx) (*http.Response, error) {
 	var resp *http.Response
 	var err error
 
+	var game models.Game
+
 	switch c.Method() {
 	case "GET":
 		resp, err = http.Get(url)
@@ -98,7 +103,6 @@ func gameHandler(c *fiber.Ctx) (*http.Response, error) {
 			return nil, c.Status(http.StatusInternalServerError).SendString(fmt.Sprintf("Error forwarding GET request to %s", "game"))
 		}
 	case "POST":
-		var game models.Game
 		if err := c.BodyParser(&game); err != nil {
 			return nil, c.Status(http.StatusBadRequest).SendString("Invalid request body")
 		}
@@ -112,6 +116,22 @@ func gameHandler(c *fiber.Ctx) (*http.Response, error) {
 		resp, err = http.Post(url, "application/json", bytes.NewBuffer(jsonData))
 		if err != nil {
 			return nil, c.Status(http.StatusInternalServerError).SendString(fmt.Sprintf("Error forwarding POST request to %s", "game"))
+		}
+	case "PUT":
+		rawBody := c.Body()
+		httpClient := &http.Client{}
+		putReq, _ := http.NewRequest("PUT", url, bytes.NewBuffer(rawBody))
+		putReq.Header.Set("Content-Type", "application/json")
+		resp, err = httpClient.Do(putReq)
+		if err != nil {
+			return nil, c.Status(http.StatusInternalServerError).SendString(fmt.Sprintf("Error forwarding PUT request to %s", "game"))
+		}
+	case "DELETE":
+		httpClient := &http.Client{}
+		deleteReq, _ := http.NewRequest("DELETE", url, nil)
+		resp, err = httpClient.Do(deleteReq)
+		if err != nil {
+			return nil, c.Status(http.StatusInternalServerError).SendString(fmt.Sprintf("Error forwarding DELETE request to %s", "game"))
 		}
 	default:
 		return nil, c.Status(http.StatusMethodNotAllowed).SendString("Method not allowed")

@@ -14,11 +14,11 @@ export class GameService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<GameResponse> {
-    return this.http.get<GameResponse>(environment.baseUrl);
+    return this.http.get<GameResponse>(environment.proxyUrl);
   }
 
   create(data: Game): Observable<any> {
-    return this.http.post(environment.createUrl, data);
+    return this.http.post(environment.proxyUrlAdd, data);
   }
 
   update(id: any, data: any): Observable<any> {

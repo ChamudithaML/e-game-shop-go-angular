@@ -1,4 +1,7 @@
-<h1>Games</h1>
+<div class="head-games">
+  <h1>Games</h1>
+  <button pButton type="button" label="Add2" (click)="openDialog()"></button>
+</div>
 
 <p-table [value]="games" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'">
   <ng-template pTemplate="header">

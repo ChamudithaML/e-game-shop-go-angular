@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog'; 
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
@@ -25,8 +24,6 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { TopThreeProductsComponent } from './components/Dashboard/top-three-products/top-three-products.component';
 import { SalesByMonthComponent } from './components/Dashboard/sales-by-month/sales-by-month.component';
 import { CardComponent } from './components/card/card.component';
-import { PracticePageComponent } from './pages/practice-page/practice-page.component';
-import { TempDialogComponent } from './components/practice-components/temp-dialog/temp-dialog.component';
 import { HomeComponent } from './components/Home/home.component';
 import { AddEditFormComponent } from './components/Forms/add-edit-form/add-edit-form.component';
 import { SalesByCategoryComponent } from './components/Dashboard/sales-by-category/sales-by-category.component';
@@ -44,8 +41,6 @@ import { GamesComponent } from './components/ManageGame/games.component';
     TopThreeProductsComponent,
     SalesByMonthComponent,
     CardComponent,
-    TempDialogComponent,
-    PracticePageComponent,
     HomeComponent,
     AddEditFormComponent
   ],

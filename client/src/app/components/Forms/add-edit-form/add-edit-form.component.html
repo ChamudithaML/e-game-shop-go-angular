@@ -1,0 +1,62 @@
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+    <div class="formgrid grid">
+        <!-- Title Field -->
+        <div class="field col-12 md:col-6">
+            <label for="title">Title</label>
+            <input id="title" type="text" formControlName="title" class="p-inputtext p-component w-full" />
+            <small *ngIf="isInvalid('title')" class="p-error">
+                Title is required and must be at least 3 characters.
+            </small>
+        </div>
+
+        <!-- Genre Field -->
+        <div class="field col-12 md:col-6">
+            <label for="genre">Genre</label>
+            <input id="genre" type="text" formControlName="genre" class="p-inputtext p-component w-full" />
+            <small *ngIf="isInvalid('genre')" class="p-error">
+                Genre is required and must be at least 3 characters.
+            </small>
+        </div>
+
+        <!-- Developer Field -->
+        <div class="field col-12 md:col-6">
+            <label for="developer">Developer</label>
+            <input id="developer" type="text" formControlName="developer" class="p-inputtext p-component w-full" />
+            <small *ngIf="isInvalid('developer')" class="p-error">
+                Developer is required and must be at least 3 characters.
+            </small>
+        </div>
+
+        <!-- Platform Field -->
+        <div class="field col-12 md:col-6">
+            <label for="platform">Platform</label>
+            <input id="platform" type="text" formControlName="platform" class="p-inputtext p-component w-full" />
+            <small *ngIf="isInvalid('platform')" class="p-error">
+                Platform is required and must be at least 3 characters.
+            </small>
+        </div>
+
+        <!-- Price Field -->
+        <div class="field col-12 md:col-6">
+            <label for="price">Price</label>
+            <input id="price" type="number" formControlName="price" class="p-inputtext p-component w-full" />
+            <small *ngIf="isInvalid('price')" class="p-error">
+                Price is required and must be a positive number.
+            </small>
+        </div>
+
+        <!-- Stock Field -->
+        <div class="field col-12 md:col-6">
+            <label for="stock">Stock</label>
+            <input id="stock" type="number" formControlName="stock" class="p-inputtext p-component w-full" />
+            <small *ngIf="isInvalid('stock')" class="p-error">
+                Stock is required and must be a positive number.
+            </small>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="gameForm.invalid" class="p-button p-component mt-3">
+        Submit
+    </button>
+</form>

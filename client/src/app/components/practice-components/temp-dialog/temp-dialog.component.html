@@ -1,0 +1,73 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="formgrid grid">
+        <!-- Firstname Field -->
+        <div class="field col-12 md:col-6">
+            <label for="firstname6">Firstname</label>
+            <input id="firstname6" type="text" formControlName="firstname"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <small *ngIf="isInvalid('firstname')" class="p-error">
+                Firstname is required and must be at least 3 characters.
+            </small>
+        </div>
+
+        <!-- Lastname Field -->
+        <div class="field col-12 md:col-6">
+            <label for="lastname6">Lastname</label>
+            <input id="lastname6" type="text" formControlName="lastname"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <small *ngIf="isInvalid('lastname')" class="p-error">
+                Lastname is required and must be at least 3 characters.
+            </small>
+        </div>
+
+        <!-- Address Field -->
+        <div class="field col-12">
+            <label for="address">Address</label>
+            <textarea id="address" rows="4" formControlName="address"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
+            <small *ngIf="isInvalid('address')" class="p-error">
+                Address is required and must be at least 10 characters.
+            </small>
+        </div>
+
+        <!-- City Field -->
+        <div class="field col-12 md:col-6">
+            <label for="city">City</label>
+            <input id="city" type="text" formControlName="city"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <small *ngIf="isInvalid('city')" class="p-error">
+                City is required.
+            </small>
+        </div>
+
+        <!-- State Field -->
+        <div class="field col-12 md:col-3">
+            <label for="state">State</label>
+            <select id="state" formControlName="state"
+                class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+                style="appearance: auto">
+                <option value="">Select State</option>
+                <option *ngFor="let s of ['Arizona', 'California', 'Florida', 'Ohio', 'Washington']">{{ s }}</option>
+            </select>
+            <small *ngIf="isInvalid('state')" class="p-error">
+                State is required.
+            </small>
+        </div>
+
+        <!-- Zip Field -->
+        <div class="field col-12 md:col-3">
+            <label for="zip">Zip</label>
+            <input id="zip" type="text" formControlName="zip"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+            <small *ngIf="isInvalid('zip')" class="p-error">
+                Zip code is required and must be a 5-digit number.
+            </small>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="form.invalid" class="p-button p-component mt-3">
+        Submit
+    </button>
+</form>

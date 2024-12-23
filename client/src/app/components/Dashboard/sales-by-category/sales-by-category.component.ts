@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
-import { Sales } from '../../models/sales.model';
-import { SalesService } from '../../services/sales.service';
+import { Sales } from '../../../models/sales.model';
+import { SalesService } from '../../../services/sales.service';
 
 @Component({
   selector: 'app-sales-by-category',

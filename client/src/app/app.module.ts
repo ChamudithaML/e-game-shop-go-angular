@@ -28,6 +28,7 @@ import { HomeComponent } from './components/Home/home.component';
 import { AddEditFormComponent } from './components/Forms/add-edit-form/add-edit-form.component';
 import { SalesByCategoryComponent } from './components/Dashboard/sales-by-category/sales-by-category.component';
 import { GamesComponent } from './components/ManageGame/games.component';
+import { DashboardComponent } from './components/Dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { GamesComponent } from './components/ManageGame/games.component';
     SalesByMonthComponent,
     CardComponent,
     HomeComponent,
-    AddEditFormComponent
+    AddEditFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

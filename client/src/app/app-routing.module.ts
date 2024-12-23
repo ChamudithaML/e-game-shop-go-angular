@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { GamesComponent } from './pages/games/games.component';
-import { PracticePageComponent } from './pages/practice-page/practice-page.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './components/Home/home.component';
+import { DashboardComponent } from './components/Dashboard/dashboard.component';
+import { GamesComponent } from './components/ManageGame/games.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'dash', component: DashboardComponent },
-  { path: 'games', component: GamesComponent },
-  { path: 'prac', component: PracticePageComponent }
+  { path: 'games', component: GamesComponent }
 ];
 
 @NgModule({

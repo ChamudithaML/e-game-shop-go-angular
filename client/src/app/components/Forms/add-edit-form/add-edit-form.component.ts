@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GameService } from '../../../services/game.service';
 import { Game } from '../../../models/game.model';
-import { GamesComponent } from '../../../pages/games/games.component';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({

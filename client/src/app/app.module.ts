@@ -23,12 +23,12 @@ import { SideNavComponent } from './layouts/side-nav/side-nav.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { TopThreeProductsComponent } from './components/Dashboard/top-three-products/top-three-products.component';
 import { SalesByMonthComponent } from './components/Dashboard/sales-by-month/sales-by-month.component';
-import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './components/Home/home.component';
 import { AddEditFormComponent } from './components/Forms/add-edit-form/add-edit-form.component';
 import { SalesByCategoryComponent } from './components/Dashboard/sales-by-category/sales-by-category.component';
 import { GamesComponent } from './components/ManageGame/games.component';
 import { DashboardComponent } from './components/Dashboard/dashboard.component';
+import { CardComponent } from './components/Home/card/card.component';
 
 @NgModule({
   declarations: [

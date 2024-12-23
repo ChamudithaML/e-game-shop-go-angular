@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GamesComponent } from './pages/games/games.component';
 import { PracticePageComponent } from './pages/practice-page/practice-page.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './components/Home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

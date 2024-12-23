@@ -18,23 +18,19 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
 
 import { AppComponent } from './app.component';
-import { GamesComponent } from './pages/games/games.component';
 import { AddFormComponent } from './components/Forms/add-form/add-form.component';
 import { EditFormComponent } from './components/Forms/edit-form/edit-form.component';
 import { SideNavComponent } from './layouts/side-nav/side-nav.component';
 import { HeaderComponent } from './layouts/header/header.component';
-import { MainComponent } from './pages/main/main.component';
-import { SalesByCategoryComponent } from './dashboard/sales-by-category/sales-by-category.component';
-import { TopThreeProductsComponent } from './dashboard/top-three-products/top-three-products.component';
-import { SalesByMonthComponent } from './dashboard/sales-by-month/sales-by-month.component';
+import { TopThreeProductsComponent } from './components/Dashboard/top-three-products/top-three-products.component';
+import { SalesByMonthComponent } from './components/Dashboard/sales-by-month/sales-by-month.component';
 import { CardComponent } from './components/card/card.component';
 import { PracticePageComponent } from './pages/practice-page/practice-page.component';
 import { TempDialogComponent } from './components/practice-components/temp-dialog/temp-dialog.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './components/Home/home.component';
 import { AddEditFormComponent } from './components/Forms/add-edit-form/add-edit-form.component';
-import { DynamicFormComponent } from './pages/dynamic-form/dynamic-form.component';
-import { DynamicFormTwoComponent } from './pages/dynamic-form-two/dynamic-form-two.component';
+import { SalesByCategoryComponent } from './components/Dashboard/sales-by-category/sales-by-category.component';
+import { GamesComponent } from './components/ManageGame/games.component';
 
 @NgModule({
   declarations: [
@@ -44,18 +40,14 @@ import { DynamicFormTwoComponent } from './pages/dynamic-form-two/dynamic-form-t
     EditFormComponent,
     SideNavComponent,
     HeaderComponent,
-    MainComponent,
     SalesByCategoryComponent,
     TopThreeProductsComponent,
     SalesByMonthComponent,
     CardComponent,
     TempDialogComponent,
     PracticePageComponent,
-    DashboardComponent,
     HomeComponent,
-    AddEditFormComponent,
-    DynamicFormComponent,
-    DynamicFormTwoComponent
+    AddEditFormComponent
   ],
   imports: [
     BrowserModule,

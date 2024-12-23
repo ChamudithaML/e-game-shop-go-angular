@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from '../../models/game.model';
 import { GameService } from '../../services/game.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { AddEditFormComponent } from '../../components/Forms/add-edit-form/add-edit-form.component';
+import { AddEditFormComponent } from '../Forms/add-edit-form/add-edit-form.component';
 
 @Component({
   selector: 'app-games',
